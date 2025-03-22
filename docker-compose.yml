@@ -4,13 +4,13 @@ services:
     ports:
       - 81:80
     volumes:
-      - /home/badma/projects/my-environment/docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-      - /home/badma/projects/my-environment:/var/www/html
+      - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - .:/var/www/html
 
   php-fpm:
     build: ./docker/php
     volumes:
-      - /home/badma/projects/my-environment:/var/www/html
+      - .:/var/www/html
 
   postgres_db:
     image: postgres:13
